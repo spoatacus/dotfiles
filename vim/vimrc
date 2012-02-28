@@ -7,8 +7,101 @@ source ~/dotfiles/vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect('~/dotfiles/vim/bundle')
 call pathogen#helptags()
 
+set nocompatible
 
 " Enable filetype plugin
+filetype on
 filetype plugin indent on
 
-set nocompatible
+" Basic options ----------------------------------------------------------- {{{
+set encoding=utf-8
+set modelines=0
+set backspace=indent,eol,start	" make backspace behave like normal
+set history=1000
+set scrolloff=3		" start scrolling 3 lines from top/bottom
+set autoread		" auto read file when changed from the outside
+set relativenumber	" line numbers show how far away from current line
+set splitright
+set splitbelow
+set cursorline
+set ttyfast
+set fileformats=unix,dos,mac
+set noerrorbells
+set novisualbell
+set t_vb=
+
+" Save when losing focus
+au FocusLost * :wa
+" }}}
+
+" wildmenu ---------------------------------------------------------------- {{{
+set wildmenu
+set wildmode=list:full
+" }}}
+
+" UI / Color scheme ------------------------------------------------------- {{{
+syntax on
+
+if has("gui_running")
+	set guifont=Ubuntu\ Mono\ 12
+	set lines=55 columns=80
+endif
+
+set guioptions-=T		" disable the toolbar
+
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+" }}}
+
+" Tabs, wrapping ---------------------------------------------------------- {{{
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set smarttab
+set autoindent smartindent
+
+set wrap
+set textwidth=80
+set formatoptions=qrn1
+set colorcolumn=+1		" show wrap column
+" }}}
+
+" Folding ----------------------------------------------------------------- {{{
+set foldmethod=indent
+set foldlevel=99
+set foldenable
+" }}}
+
+" Backups ----------------------------------------------------------------- {{{
+set backup
+set noswapfile
+set undofile
+set undodir=~/dotfiles/vim/undodir
+set backupdir=~/dotfiles/vim/sessions
+set directory=~/dotfiles/vim/sessions
+" }}}
+
+" Leader ------------------------------------------------------------------ {{{
+let mapleader = ","
+" }}}
+
+" Search ------------------------------------------------------------------ {{{
+set ignorecase
+set smartcase
+set hlsearch
+set incsearch
+set showmatch
+set gdefault		" replace multiple items per line by default
+nnoremap <leader><space> :noh<cr>
+" }}}
+
+" Movement ---------------------------------------------------------------- {{{
+map <tab> %
+" }}}
+
+" Key bindings ------------------------------------------------------------ {{{
+" Copy/Paste to and from Desktop Environment
+noremap <leader>yy "+y
+noremap <leader>pp "+gP
+" }}}
