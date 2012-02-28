@@ -101,6 +101,9 @@ map <tab> %
 " }}}
 
 " Key bindings ------------------------------------------------------------ {{{
+" NERDTree
+nnoremap <leader>d :NERDTreeToggle<CR>
+
 " Copy/Paste to and from Desktop Environment
 noremap <leader>yy "+y
 noremap <leader>pp "+gP
