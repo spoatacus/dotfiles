@@ -1,4 +1,14 @@
+" load ~/dotfiles/vim files
+set runtimepath=~/dotfiles/vim,$VIMRUNTIME
+
 " load pathogen
 source ~/dotfiles/vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect('~/dotfiles/vim/bundle')
 call pathogen#helptags()
+
+
+" Enable filetype plugin
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
