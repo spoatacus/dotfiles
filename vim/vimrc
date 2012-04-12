@@ -7,6 +7,9 @@ source ~/dotfiles/vim/bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect('~/dotfiles/vim/bundle')
 call pathogen#helptags()
 
+" load matchit (OS X)
+source $VIMRUNTIME/macros/matchit.vim
+
 set nocompatible
 
 " Enable filetype plugin
@@ -20,7 +23,8 @@ set backspace=indent,eol,start	" make backspace behave like normal
 set history=1000
 set scrolloff=3		" start scrolling 3 lines from top/bottom
 set autoread		" auto read file when changed from the outside
-set relativenumber	" line numbers show how far away from current line
+"set relativenumber	" line numbers show how far away from current line
+set nonumber
 set splitright
 set splitbelow
 set cursorline
@@ -43,8 +47,9 @@ set wildmode=list:full
 syntax on
 
 if has("gui_running")
-	set guifont=Ubuntu\ Mono\ 12
-	set lines=55 columns=80
+	"set guifont=Ubuntu\ Mono\ 12
+	set guifont=Inconsolata:h16
+	set lines=55 columns=165
 endif
 
 set guioptions-=T		" disable the toolbar
@@ -107,4 +112,5 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 " Copy/Paste to and from Desktop Environment
 noremap <leader>yy "+y
 noremap <leader>pp "+gP
+
 " }}}
