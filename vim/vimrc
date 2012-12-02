@@ -1,10 +1,10 @@
-" load ~/dotfiles/vim files
-set runtimepath=~/dotfiles/vim,$VIMRUNTIME
+" load ~/.vim files
+set runtimepath=~/.vim,$VIMRUNTIME
 
 " load pathogen
 filetype off
-source ~/dotfiles/vim/bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect('~/dotfiles/vim/bundle')
+source ~/.vim/bundle/pathogen/autoload/pathogen.vim
+call pathogen#infect('~/.vim/bundle')
 call pathogen#helptags()
 
 " load matchit (OS X)
@@ -46,14 +46,6 @@ set wildmode=list:full
 " UI / Color scheme ------------------------------------------------------- {{{
 syntax on
 
-if has("gui_running")
-	"set guifont=Ubuntu\ Mono\ 12
-	set guifont=Inconsolata:h16
-	set lines=55 columns=165
-endif
-
-set guioptions-=T		" disable the toolbar
-
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
@@ -82,9 +74,9 @@ set foldenable
 set backup
 set noswapfile
 set undofile
-set undodir=~/dotfiles/vim/undodir
-set backupdir=~/dotfiles/vim/sessions
-set directory=~/dotfiles/vim/sessions
+set undodir=$HOME/.vim/undo
+set backupdir=$HOME/.vim/backups
+set directory=$HOME/.vim/swaps
 " }}}
 
 " Leader ------------------------------------------------------------------ {{{

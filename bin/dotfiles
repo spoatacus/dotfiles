@@ -1,0 +1,59 @@
+#!/bin/bash
+
+# borrowed from necolas (https://github.com/necolas/dotfiles)
+
+dotfiles_directory="$( dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd ) )"
+
+
+link() {
+	ln -fs "${dotfiles_directory}/${1}" "${HOME}/${2}"
+}
+
+mirrorfiles() {
+	# Copy `.gitconfig`.
+	# Any global git commands in `~/.bash_profile.local` will be written to
+	# `.gitconfig`. This prevents them being committed to the repository.
+	printf "Copying .gitconfig...\n"
+	rsync -avz --quiet ${dotfiles_directory}/git/gitconfig  ${HOME}/.gitconfig
+
+	# Force remove the vim directory if it's already there.
+	printf "Removing old vim config...\n"
+	if [ -e "${HOME}/.vim" ]; then
+		rm -rf "${HOME}/.vim"
+	fi
+
+	# Create the necessary symbolic links between the `dotfiles` and `HOME`
+	# directory. The `bash_profile` sources other files directly from the
+	# `dotfiles` repository.
+	printf "Symlinking files...\n"
+	link "bash/bashrc"			".bashrc"
+	link "bash/bash_profile"	".bash_profile"
+	link "bash/inputrc"			".inputrc"
+	link "git/gitattributes"	".gitattributes"
+	link "git/gitignore"		".gitignore"
+	link "vim"					".vim"
+	link "vim/gvimrc"			".gvimrc"
+	link "vim/vimrc"			".vimrc"
+
+	printf "Done\n"
+}
+
+
+# Verify that the user wants to proceed before potentially overwriting files
+printf "\n"
+printf "Warning: This may overwrite your existing dotfiles. "
+read -p "Continue? (y/n) " -n 1
+printf "\n\n"
+
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	# Backup dotfiles
+	printf "Backing up dotfiles...\n"
+	now=$(date +"%Y%m%d_%H%M")
+	tar -czf ${HOME}/dotfiles_${now}.tar.gz -C ${HOME} {.bashrc,.bash_profile,.inputrc,.gitattributes,.gitconfig,.gitignore,.vim,.gvimrc,.vimrc}
+
+	mirrorfiles
+	source ${HOME}/.bash_profile
+else
+	printf "Aborting...\n"
+	exit 1
+fi

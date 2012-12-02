@@ -1,0 +1,15 @@
+#!/bin/bash
+
+declare -a files=(
+	"$HOME/.bash_profile.local"
+	"$HOME/.dotfiles/bash/exports"
+	"$HOME/.dotfiles/bash/aliases"
+	"$HOME/.dotfiles/bash/functions"
+	"$HOME/.dotfiles/bash/bash_prompt"
+)
+
+# If these files are readable, source them
+for file in "${files[@]}"; do
+	[ -r "$file" ] && source "$file"
+done
+unset file files

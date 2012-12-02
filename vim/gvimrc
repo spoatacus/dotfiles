@@ -1,0 +1,3 @@
+set guifont=Droid\ Sans\ Mono\ 10
+set lines=55 columns=90
+set guioptions-=T		" disable the toolbar

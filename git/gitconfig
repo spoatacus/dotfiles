@@ -1,0 +1,16 @@
+[core]
+	autocrlf = input
+	safecrlf = true
+	# Use custom `.gitignore` and `.gitattributes`
+	excludesfile = ~/.gitignore
+	attributesfile = ~/.gitattributes
+
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d\" --graph --date=short
+	go = checkout -B
+
+[color]
+	ui = auto
+
+[log]
+	abbrevCommit
