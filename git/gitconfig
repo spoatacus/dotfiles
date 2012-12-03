@@ -6,15 +6,21 @@
 	attributesfile = ~/.gitattributes
 
 [alias]
+	s = status -s
+	l = log --pretty=oneline --graph
+	co = checkout
 	hist = log --pretty=format:\"%h %ad | %s%d\" --graph --date=short
 	go = checkout -B
+	remotes = remote -v
+	branches = branch -a
+	tags = tag -n
 
 [color]
 	ui = auto
 
 [color "status"]
 	changed = yellow
-	untracked = orange
+	untracked = cyan
 
 [log]
 	abbrevCommit
