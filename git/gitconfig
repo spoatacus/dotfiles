@@ -8,12 +8,22 @@
 [alias]
 	s = status -s
 	l = log --pretty=oneline --graph
+	# log with changed files
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	# log with dates
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
 	co = checkout
+	ci = commit
+	br = branch
 	hist = log --pretty=format:\"%h %ad | %s%d\" --graph --date=short
 	go = checkout -B
 	remotes = remote -v
 	branches = branch -a
 	tags = tag -n
+	# list aliases
+	la = "!git config -l | grep alias | cut -c 7-"
+	sl = stash list
+	ss = stash save
 
 [color]
 	ui = auto
