@@ -5,6 +5,15 @@
 .DS_Store
 Desktop.ini
 
+# Windows stuff
+Thumbs.db
+
+# IntelliJ project files
+*.iml
+*.ipr
+*.iws
+.idea/
+
 # Always ignore extensions
 *~
 *.pyc
