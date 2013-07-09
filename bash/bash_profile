@@ -13,3 +13,5 @@ for file in "${files[@]}"; do
 	[ -r "$file" ] && source "$file"
 done
 unset file files
+
+export HISTCONTROL=ignoredups
