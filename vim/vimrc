@@ -79,6 +79,12 @@ set backupdir=$HOME/.vim/backups
 set directory=$HOME/.vim/swaps
 " }}}
 
+" Statusline -------------------------------------------------------------- {{{
+set statusline =
+set statusline +=%1*%=%5l%*
+set statusline +=%2*/%L%*
+" }}}
+
 " Leader ------------------------------------------------------------------ {{{
 let mapleader = ","
 " }}}
