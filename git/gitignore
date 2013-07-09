@@ -5,7 +5,16 @@
 .DS_Store
 Desktop.ini
 
+# Windows crap
+Thumbs.db
+
 # Always ignore extensions
 *~
 *.pyc
 *.sass-cache
+
+# IntelliJ project files
+*.iml
+*.ipr
+*.iws
+.idea/
