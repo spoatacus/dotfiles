@@ -57,6 +57,7 @@ set shiftwidth=4
 set softtabstop=4
 set smarttab
 set autoindent smartindent
+set expandtab
 
 set wrap
 set textwidth=80
