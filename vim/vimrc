@@ -1,3 +1,15 @@
+" Identify platform ------------------------------------------------------- {{{
+    silent function! OSX()
+        return has('macunix')
+    endfunction
+    silent function! LINUX()
+        return has('unix') && !has('macunix') && !has('win32unix')
+    endfunction
+    silent function! WINDOWS()
+        return  (has('win16') || has('win32') || has('win64'))
+    endfunction
+" }}}
+
 " load ~/.vim files
 set runtimepath=~/.vim,$VIMRUNTIME
 
@@ -112,4 +124,31 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 noremap <leader>yy "+y
 noremap <leader>pp "+gP
 
+" }}}
+
+" GUI settings ------------------------------------------------------------ {{{
+if has('gui_running')
+    set lines=55 columns=90
+    set guioptions-=T           " disable the toolbar
+
+    if LINUX()
+        set guifont=Source\ Code\ Pro\ Regular\ 10,Ubuntu\ Mono\ 12,Monospace\ 12
+    elseif OSX()
+        set guifont=Source\ Code\ Pro\ Regular:h10,Ubuntu\ Mono:h12,Monaco:h12
+    elseif WINDOWS()
+        set guifont=Source_Code_Pro:h10,Ubuntu_Mono:h12,Consolas:h12
+    endif
+endif
+" }}}
+
+" Local config files ------------------------------------------------------ {{{
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
+
+if has('guirunning')
+    if filereadable(expand("~/.gvimrc.local"))
+        source ~/.gvimrc.local
+    endif
+endif
 " }}}
