@@ -16,7 +16,7 @@ set runtimepath=~/.vim,$VIMRUNTIME
 " load pathogen
 filetype off
 source ~/.vim/bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect('~/.vim/bundle')
+call pathogen#infect('~/.vim/bundle/{}')
 call pathogen#helptags()
 
 " load matchit (OS X)
