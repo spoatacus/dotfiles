@@ -16,7 +16,7 @@ call vundle#begin()
     Plugin 'tacahiroy/ctrlp-funky'
     Plugin 'terryma/vim-multiple-cursors'
     Plugin 'vim-scripts/sessionman.vim'
-    if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+    if (has("python") || has("python3"))
         Plugin 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
     else
         Plugin 'bling/vim-airline'
