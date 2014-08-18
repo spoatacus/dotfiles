@@ -32,7 +32,6 @@ mirrorfiles() {
 	link "git/gitattributes"	".gitattributes"
 	link "git/gitignore"		".gitignore"
 	link "vim"					".vim"
-	link "vim/gvimrc"			".gvimrc"
 	link "vim/vimrc"			".vimrc"
 
 	printf "Done\n"

@@ -10,19 +10,20 @@
     endfunction
 " }}}
 
+set nocompatible
+filetype off
+
 " load ~/.vim files
 set runtimepath=~/.vim,$VIMRUNTIME
 
-" load pathogen
-filetype off
-source ~/.vim/bundle/pathogen/autoload/pathogen.vim
-call pathogen#infect('~/.vim/bundle/{}')
-call pathogen#helptags()
+" load bundles
+if filereadable(expand("~/.vimrc.bundles"))
+    source ~/.vimrc.bundles
+endif
 
 " load matchit (OS X)
 source $VIMRUNTIME/macros/matchit.vim
 
-set nocompatible
 
 " Enable filetype plugin
 filetype on
@@ -35,8 +36,8 @@ set backspace=indent,eol,start	" make backspace behave like normal
 set history=1000
 set scrolloff=3		" start scrolling 3 lines from top/bottom
 set autoread		" auto read file when changed from the outside
-"set relativenumber	" line numbers show how far away from current line
-set nonumber
+set relativenumber	" line numbers show how far away from current line
+set nu
 set splitright
 set splitbelow
 set cursorline
@@ -48,6 +49,9 @@ set t_vb=
 
 " Save when losing focus
 au FocusLost * :wa
+
+" Always switch to the current file directory
+autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 " }}}
 
 " wildmenu ---------------------------------------------------------------- {{{
@@ -132,7 +136,20 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 noremap <leader>yy "+y
 noremap <leader>pp "+gP
 
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" Allow using the repeat operator with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
 " }}}
+
+" Plugins {
+    " NERDTree {
+        let g:nerdtree_tabs_open_on_gui_startup = 0
+    " }
+" }
 
 " GUI settings ------------------------------------------------------------ {{{
 if has('gui_running')

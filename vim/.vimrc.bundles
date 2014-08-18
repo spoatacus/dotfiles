@@ -1,0 +1,78 @@
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Required {
+    Plugin 'gmarik/Vundle.vim'
+" }
+
+" General {
+    Plugin 'tpope/vim-surround'
+    Plugin 'tpope/vim-repeat'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'myusuf3/numbers.vim'
+    Plugin 'Shougo/neocomplcache.vim'
+    Plugin 'kien/ctrlp.vim'
+    Plugin 'tacahiroy/ctrlp-funky'
+    Plugin 'terryma/vim-multiple-cursors'
+    Plugin 'vim-scripts/sessionman.vim'
+    if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
+        Plugin 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+    else
+        Plugin 'bling/vim-airline'
+    endif
+    Plugin 'bling/vim-bufferline'
+    Plugin 'Lokaltog/vim-easymotion'
+    Plugin 'jistr/vim-nerdtree-tabs'
+    Plugin 'mbbill/undotree'
+    Plugin 'nathanaelkane/vim-indent-guides'
+    Plugin 'mhinz/vim-signify'
+    Plugin 'tpope/vim-abolish'
+    Plugin 'osyo-manga/vim-over'
+    Plugin 'kana/vim-textobj-user'
+    Plugin 'kana/vim-textobj-indent'
+    Plugin 'gcmt/wildfire.vim'
+" }
+
+
+" Programming {
+    Plugin 'tpope/vim-commentary'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'scrooloose/syntastic'
+    Plugin 'tpope/vim-fugitive'
+    Plugin 'mattn/gist-vim'
+    Plugin 'godlygeek/tabular'
+    if executable('ctags')
+        Plugin 'majutsushi/tagbar'
+    endif
+" }
+
+
+" Snippets & Autocomplete {
+    Plugin 'Shougo/neocomplcache'
+    Plugin 'Shougo/neosnippet'
+    Plugin 'Shougo/neosnippet-snippets'
+    Plugin 'honza/vim-snippets'
+" }
+
+
+" Web {
+    Plugin 'amirh/HTML-AutoCloseTag'
+    Plugin 'hail2u/vim-css3-syntax'
+    Plugin 'gorodinskiy/vim-coloresque'
+    Plugin 'tpope/vim-haml'
+" }
+
+" Python {
+    Plugin 'klen/python-mode'
+    Plugin 'python_match.vim'
+    Plugin 'pythoncomplete'
+" }
+
+
+" load local bundles
+if filereadable(expand("~/.vimrc.bundles.local"))
+    source ~/.vimrc.bundles.local
+endif
+
+call vundle#end()
