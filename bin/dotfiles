@@ -39,11 +39,29 @@ mirrorfiles() {
 }
 
 
-# Verify that the user wants to proceed before potentially overwriting files
-printf "\n"
-printf "Warning: This may overwrite your existing dotfiles. "
-read -p "Continue? (y/n) " -n 1
-printf "\n\n"
+while [[ $# > 0 ]]
+do
+  arg="$1"
+
+  case $arg in
+    -f)
+    ARG="$1"
+    shift
+    ;;
+  esac
+  shift
+done
+
+if [[ $ARG != "-f" ]]; then
+  # Verify that the user wants to proceed before potentially overwriting files
+  printf "\n"
+  printf "Warning: This may overwrite your existing dotfiles. "
+  read -p "Continue? (y/n) " -n 1
+  printf "\n\n"
+else
+  REPLY="y"
+fi
+
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
 	# Backup dotfiles
