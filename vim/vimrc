@@ -64,9 +64,9 @@ colorscheme solarized
 " }}}
 
 " Tabs, wrapping ---------------------------------------------------------- {{{
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set smarttab
 set autoindent smartindent
 set expandtab
@@ -139,6 +139,10 @@ if has('gui_running')
         set guifont=Source_Code_Pro:h10,Ubuntu_Mono:h12,Consolas:h12
     endif
 endif
+" }}}
+
+" Filetype based settings ------------------------------------------------- {{{
+autocmd FileType java,python setlocal shiftwidth=4 tabstop=4 softtabstop=4 et
 " }}}
 
 " Local config files ------------------------------------------------------ {{{
