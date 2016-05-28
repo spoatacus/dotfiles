@@ -132,11 +132,11 @@ if has('gui_running')
     set guioptions-=T           " disable the toolbar
 
     if LINUX()
-        set guifont=Source\ Code\ Pro\ Regular\ 10,Ubuntu\ Mono\ 12,Monospace\ 12
+        set guifont=Source\ Code\ Pro\ Regular\ 12,Ubuntu\ Mono\ 12,Monospace\ 12
     elseif OSX()
-        set guifont=Source\ Code\ Pro\ Regular:h10,Ubuntu\ Mono:h12,Monaco:h12
+        set guifont=Source\ Code\ Pro:h12,Ubuntu\ Mono:h14,Monaco:h12
     elseif WINDOWS()
-        set guifont=Source_Code_Pro:h10,Ubuntu_Mono:h12,Consolas:h12
+        set guifont=Source_Code_Pro:h12,Ubuntu_Mono:h12,Consolas:h12
     endif
 endif
 " }}}
