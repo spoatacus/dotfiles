@@ -1,0 +1,15 @@
+= dotfiles
+spoatacus <spoatacus@gmail.com>
+
+== Installation
+Clone the dotfiles repository.
+```
+git clone --recursive https://github.com/spoatacus/dotfiles.git ~/.dotfiles
+```
+Install the dotfiles. +
+NOTE: The install script will prompt you to backup any files that it might overwrite.
+
+```
+cd ~/.dotfiles
+sh bin/dotfiles
+```
