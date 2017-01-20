@@ -1,5 +1,11 @@
 # fix line endings
 # runs dos2unix recursively on the current directory
 fle() {
-	find . -type f -and -not -path './.git/*' -and -not -path './.idea/*' -exec dos2unix {} +
+  find . -type f -and -not -path './.git/*' -and -not -path './.idea/*' -exec dos2unix {} +
 }
+
+# mkdir && cd in one
+mkcd () {
+  mkdir --p -- "$1" && cd -P -- "$1"
+}
+
