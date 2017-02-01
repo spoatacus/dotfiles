@@ -14,4 +14,4 @@ for file in "${files[@]}"; do
 done
 unset file files
 
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoredups:ignorespace
