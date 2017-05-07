@@ -2,10 +2,10 @@
 
 declare -a files=(
 	"$HOME/.bash_profile.local"
-	"$HOME/.dotfiles/bash/exports"
+	"$HOME/.dotfiles/shell/bash/exports"
 	"$HOME/.dotfiles/shell/common/aliases/aliases"
-	"$HOME/.dotfiles/bash/functions"
-	"$HOME/.dotfiles/bash/bash_prompt"
+	"$HOME/.dotfiles/shell/bash/functions"
+	"$HOME/.dotfiles/shell/bash/bash_prompt"
 )
 
 # If these files are readable, source them
